@@ -9,13 +9,13 @@
     <style>
         html,
         body {
-            background-color: #1C1714;
+            background-color: #fff;
             padding-top: 380px;
-            height: 100vh;
+            min-height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            
         }
 
     
@@ -26,7 +26,7 @@
     @extends('Layouts.app')
 
     @section('content')
- 
+    
         @if ($errors->any())
             <div style="text-align: left;width: 31rem;position: relative;left: 61px;" class="alert alert-danger">
                 <ul>
@@ -35,9 +35,18 @@
                     @endforeach
                 </ul>
             </div>
-           
         @endif
+    
+        <main>
+            <section style="min-height: 1000px; background-color: #2a1b14; color: white; padding-top: 50px;">
+                <h1>صفحه اصلی</h1>
+                <p>اینجا محتوای صفحه اصلی قرار می‌گیره.</p>
+                <p>مثلاً محصولات، متن معرفی، عکس‌ها، بخش درباره ما و...</p>
+            </section>
+        </main>
+    
     @endsection
+    
 </body>
 
 </html>

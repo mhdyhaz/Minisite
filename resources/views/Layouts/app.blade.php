@@ -9,21 +9,19 @@
     <link href='https://fonts.googleapis.com/css?family=Vazirmatn' rel='stylesheet'>
     {{-- چون نمیدونم تاثیر این دقیقا کجاس و وقتی این بخش فرانتش تموم شد میام چکش میکنم --}}
     
-    {{-- <style>
+    <style>
 
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 100%);
-            color: black;
-            overflow-x: hidden;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 100%);
+    color: black;
+    overflow-x: hidden;
+    font-family: 'Vazirmatn', sans-serif;
+}
 
-    </style> --}}
+
+    </style>
 </head>
 <body>
     @include('Layouts.header') 
@@ -33,8 +31,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
-        </style>
+
 </body>
 </html>
