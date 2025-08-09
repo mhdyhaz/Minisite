@@ -8,29 +8,30 @@
 
     <link href='https://fonts.googleapis.com/css?family=Vazirmatn' rel='stylesheet'>
     {{-- چون نمیدونم تاثیر این دقیقا کجاس و وقتی این بخش فرانتش تموم شد میام چکش میکنم --}}
-    
-    <style>
 
-body {
-    margin: 0;
-    padding: 0;
-    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 100%);
-    color: black;
-    overflow-x: hidden;
-    font-family: 'Vazirmatn', sans-serif;
-}
+    @stack('styles')
+<style>
+      body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      direction: rtl;
+      background: #f9f6f1;
 
+    }
 
-    </style>
+</style>
 </head>
 <body>
     @include('Layouts.header') 
     <div class="content">
         @yield('content') 
     </div>
+    @include('Layouts.footer') 
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    @stack('scripts')
 
 </body>
 </html>

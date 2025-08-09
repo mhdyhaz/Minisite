@@ -5,131 +5,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/kalameh-font@v1.0.0/dist/font-face.css" rel="stylesheet" />
+
+
   <style>
-    /* تنظیم فونت کل صفحه */
-    body {
-      margin: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      direction: rtl;
-    }
 
     header {
-      position: absolute;
+      background-color: #b8b49c;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 650px;
+      height: 130px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      padding: 15px 22px;
       justify-content: space-between;
-      padding: 0 30px;
-      color: white;
+      color: black;
       z-index: 1000;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-      /* افکت موج‌دار روشن-تیره */
-      background: linear-gradient(-45deg,#27160e, #231f1d, #796243, #412c22);
-      background-size: 400% 400%;
-      animation: waveBackground 10s ease-in-out infinite;
+     
+
     }
 
-    @keyframes waveBackground {
-      0% {
-        background-position: 0% 50%;
-      }
 
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+    header.shrink {
+      height: 75px;
+      padding: 10px 18px;
     }
+
 
 
     .logo {
-      font-weight: bold;
+      color: #2c2c2c;
       font-size: 24px;
       cursor: pointer;
-      bottom: 18rem;
       position: relative;
       user-select: none;
+      transition: transform 0.3s ease;
     }
+
+    .logo:hover {
+      transform: scale(1.15);
+    }
+
 
     nav ul {
       margin: 0;
-      padding: 0;
+      padding: 0 20px;
       list-style: none;
       display: flex;
       gap: 25px;
+      /* background-color: #d4ccb6; */
+      border-radius: 50px;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+      transition: opacity 0.4s ease;
     }
 
-    nav ul li {
-      position: relative;
+    nav.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
+      color: #2c2c2c;
       font-weight: 600;
       padding: 8px 0;
-      transition: color 0.3s ease;
       position: relative;
       display: inline-block;
-      position: relative;
-      bottom: 18rem;
-    }
-
-    /* خط زیر لینک هنگام هاور */
-    nav ul li a::before {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: whitesmoke;
-      border-radius: 5px;
-      transform: scaleX(0);
-      transform-origin: right;
       transition: transform 0.3s ease;
-    }
-
-    nav ul li a:hover::before {
-      transform: scaleX(1);
-      transform-origin: right;
+      font-size: 16px;
     }
 
     nav ul li a:hover {
-      color: #f0e6e6;
+      transform: scale(1.15);
     }
 
-
     .btn-exit {
-      background-color: #1c1714;
-      color: white;
       border: none;
       border-radius: 30px;
-      padding: 10px 11px;
+      padding: 8px 10px;
       font-size: 16px;
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
-      bottom: 18rem;
-      transition: background-color 0.3s ease;
+      justify-content: center;
+      background: none;
     }
 
-    .btn-exit:hover {
-      background-color: #392f27;
+    .user-icon {
+      font-size: 24px;
+      color: black;
+      transition: transform 0.2s ease, filter 0.2s ease;
     }
 
-    main {
-      padding-top: 90px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
+    .btn-exit:hover .user-icon,
+    .btn-exit:active .user-icon {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
     }
 
     @media (max-width: 768px) {
@@ -141,10 +117,7 @@
         font-size: 20px;
       }
 
-      .btn-exit {
-        padding: 6px 14px;
-        font-size: 14px;
-      }
+
     }
 
     @media (max-width: 480px) {
@@ -166,30 +139,58 @@
       }
     }
 
-    .carousel {
-      position: absolute;
-      width: 100%;
-      height: 300px;
+
+    .search-container {
       display: flex;
+      background-color: transparent;
       justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .perfume {
+      transition: all 0.4s ease;
+      z-index: 999;
       position: absolute;
-      width: 120px;
-      height: auto;
-      opacity: 0;
-      transition: opacity 0.8s ease, transform 0.8s ease;
-      transform: scale(0.8);
-      border-radius: 50%;
+      top: 100px;
+      left: 30%;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 30px;
+      width: 40%;
+
     }
 
-    .perfume.active {
-      opacity: 1;
-      transform: scale(2.2);
-      z-index: 2;
+
+    .search-container input {
+      padding: 10px 50px;
+      width: 100%;
+      border-radius: 50px;
+      border: none;
+      font-family: inherit;
+      font-size: 16px;
+      position: relative;
+      background-color: transparent;
+      outline: none;
+    }
+
+    /* حالت فیکس‌شده بعد از اسکرول */
+    .search-container.fixed {
+      position: fixed;
+      top: 15px;
+      left: 35%;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 30px;
+      border: none;
+      width: 30%;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      color: black;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      position: relative;
+      border-radius: 50px;
+      z-index: 999;
+      border: none;
+      outline: none;
+      left: 10px;
+      background: none;
     }
   </style>
 </head>
@@ -208,33 +209,46 @@
       </ul>
     </nav>
     <button class="btn-exit" type="button">
-      <i class="bi bi-person-lines-fill"></i>
+      <i class="bi bi-person-lines-fill user-icon"></i>
     </button>
-    <div class="carousel">
-      <img src="/images/per-removebg-preview.png" alt="عطر 1" class="perfume">
-      <img src="/images/UVrRDgLOTB6aHvLHzoLaQw-removebg-preview.png" alt="عطر 2" class="perfume">
-      <img
-        src="/images/shalimar-gardens-lahore-perfume-guerlain-note-perfume-free-download-png-500x434-removebg-preview.png"
-        alt="عطر 3" class="perfume">
-    </div>
 
+    <div class="search-container" id="searchBar">
+      <input type="text" id="searchInput" placeholder="جستجو...">
+      <button class="search-icon" id="searchBtn">
+        <i class="bi bi-search "></i>
+      </button>
+
+    </div>
   </header>
 
   <script>
-    const perfumes = document.querySelectorAll('.perfume');
-    let current = 0;
+    const header = document.querySelector("header");
+    const nav = document.querySelector("nav");
+    const searchBar = document.getElementById("searchBar");
+    const threshold = 200;
 
-    function showNextPerfume() {
-      perfumes.forEach(p => p.classList.remove('active'));
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > threshold) {
+        header.classList.add("shrink");
+        nav.classList.add("hidden");
+        searchBar.classList.add("fixed");
+      } else {
+        header.classList.remove("shrink");
+        nav.classList.remove("hidden");
+        searchBar.classList.remove("fixed");
+      }
+    });
+  </script>
 
-      perfumes[current].classList.add('active');
-
-      current = (current + 1) % perfumes.length;
-    }
-
-    showNextPerfume();
-
-    setInterval(showNextPerfume, 4000);
+  <script>
+    document.getElementById("searchBtn").addEventListener("click", function () {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query !== "") {
+        alert("جستجو برای: " + query);
+      } else {
+        alert("لطفاً عبارتی برای جستجو وارد کنید.");
+      }
+    });
   </script>
 
 </body>
