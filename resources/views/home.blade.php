@@ -13,7 +13,6 @@
     @endif
 
 
-    {{-- اسلایدر عطر --}}
     <div class="perfume-carousel">
         <img src="/images/vi-removebg-preview.png" alt="عطر 1" class="perfume-item">
         <img src="/images/UVrRDgLOTB6aHvLHzoLaQw-removebg-preview.png" alt="عطر 2" class="perfume-item">
@@ -76,9 +75,9 @@
         }
 
         .perfume-carousel {
-            margin-top: 130px;
+            margin-top: 160px;
             width: 100%;
-            height: 300px;
+            height: 280px;
             display: flex;
             justify-content: center;
             align-items: center;

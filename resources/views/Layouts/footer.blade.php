@@ -62,19 +62,6 @@
 
         }
 
-        .footer-about {
-            position: absolute;
-            bottom: 20rem;
-            right: 41rem;
-            text-align: right;
-            padding-top: 0.5rem;
-            font-size: 0.85rem;
-            color: #555;
-            max-width: 250px;
-            text-shadow: 0 0 2px rgba(0,0,0,0.15);
-            line-height: 1.6;
-        }
-
 
         .social a {
             font-size: 24px;
@@ -128,13 +115,7 @@
                 <a href="#"><i class="bi bi-instagram"></i></a>
                 <a href="#"><i class="bi bi-telegram"></i></a>
             </div>
-            <div class="footer-about">
-                <p>
-                    بوی خوب شما، فقط با عطر ما.
-                    فقط با یک پیس از عطراگین،در ذهن ها ماندگار شوید
-                </p>
-            </div>
-
+      
 
         </div>
 

@@ -9,24 +9,19 @@
 
 
   <style>
-
-    header {
+ header {
       background-color: #b8b49c;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 130px;
-      display: flex;
-      align-items: flex-start;
-      padding: 15px 22px;
-      justify-content: space-between;
-      color: black;
+      height: 150px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      padding: 20px 20px;
       z-index: 1000;
-     
-
     }
-
 
     header.shrink {
       height: 75px;
@@ -35,32 +30,41 @@
 
 
 
-    .logo {
-      color: #2c2c2c;
-      font-size: 24px;
-      cursor: pointer;
-      position: relative;
-      user-select: none;
+    .logo img {
+      height: 140px;
+      width:140px;
+      display: block;
       transition: transform 0.3s ease;
+      top: -35px;
+      position: relative;
+      right: -40px;
     }
 
-    .logo:hover {
-      transform: scale(1.15);
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
 
     nav ul {
       margin: 0;
-      padding: 0 20px;
+      padding: 0;
       list-style: none;
       display: flex;
-      gap: 25px;
-      /* background-color: #d4ccb6; */
-      border-radius: 50px;
-      align-items: center;
-      flex-grow: 1;
+      gap: 30px;
       justify-content: center;
-      transition: opacity 0.4s ease;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      display: inline-block;
+      color: #2c2c2c;
+      font-weight: 600;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      transform: scale(1.1);
     }
 
     nav.hidden {
@@ -68,44 +72,27 @@
       pointer-events: none;
     }
 
-    nav ul li a {
-      text-decoration: none;
-      color: #2c2c2c;
-      font-weight: 600;
-      padding: 8px 0;
-      position: relative;
-      display: inline-block;
-      transition: transform 0.3s ease;
-      font-size: 16px;
-    }
 
-    nav ul li a:hover {
-      transform: scale(1.15);
-    }
-
-    .btn-exit {
+    .user {
       border: none;
-      border-radius: 30px;
-      padding: 8px 10px;
-      font-size: 16px;
+      background: none;
       cursor: pointer;
       display: flex;
       align-items: center;
-      position: relative;
       justify-content: center;
-      background: none;
     }
 
     .user-icon {
-      font-size: 24px;
+      font-size: 28px;
       color: black;
-      transition: transform 0.2s ease, filter 0.2s ease;
     }
 
-    .btn-exit:hover .user-icon,
-    .btn-exit:active .user-icon {
+    .user:hover,
+    .user:active {
       transform: scale(1.2);
       filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+      transition: transform 0.3s ease;
+
     }
 
     @media (max-width: 768px) {
@@ -148,7 +135,7 @@
       z-index: 999;
       position: absolute;
       top: 100px;
-      left: 30%;
+      left: 28%;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
       border-radius: 30px;
       width: 40%;
@@ -197,7 +184,20 @@
 
 <body>
   <header>
-    <div class="logo">عطراگین</div>
+    <div class="logo">
+      <img
+        src="/images/professional-logo-for-a-perfume-website-_-50cP1W8Q1q3E8Ual7iWYw_IkfZeZltQCuTtgGuz1U3Sg-removebg-preview.png"
+        alt="لوگوی عطراگین">
+
+    </div>
+    {{-- <div class="about-header">
+      <h1>عطراگین
+
+        بوی خوب شما، فقط با عطر ما.
+        با یک پیس از عطراگین،در ذهن ها ماندگار شوید
+      </h1>
+    </div> --}}
+ 
     <nav>
       <ul>
         <li><a href="#">صفحه اصلی</a></li>
@@ -208,7 +208,7 @@
         <li><a href="#">درباره ما</a></li>
       </ul>
     </nav>
-    <button class="btn-exit" type="button">
+    <button class="user" type="button">
       <i class="bi bi-person-lines-fill user-icon"></i>
     </button>
 
