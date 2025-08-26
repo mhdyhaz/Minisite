@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+
 
     <link href='https://fonts.googleapis.com/css?family=Vazirmatn' rel='stylesheet'>
-    {{-- چون نمیدونم تاثیر این دقیقا کجاس و وقتی این بخش فرانتش تموم شد میام چکش میکنم --}}
 
     @stack('styles')
 <style>
