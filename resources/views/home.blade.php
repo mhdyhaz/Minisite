@@ -12,38 +12,38 @@
     </div>
 @endif
 
-{{-- اسلایدر بالای صفحه --}}
 <div class="perfume-carousel">
     <img src="/images/vi-removebg-preview.png" alt="عطر 1" class="perfume-item">
     <img src="/images/UVrRDgLOTB6aHvLHzoLaQw-removebg-preview.png" alt="عطر 2" class="perfume-item">
     <img src="/images/gh-removebg-preview.png" alt="عطر 3" class="perfume-item">
 </div>
 
-{{-- بخش محصولات --}}
 <div class="container py-5">
 
     @php
         $sections = [
+            
             'مناسب‌ترین عطر فصل' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
+                ['img' => 'images/summer.webp', 'title' => 'blue عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
+                ['img' => 'images/summer2.jpg', 'title' => ' عطر summer', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
+            ],
+            'عطرهای مردانه و زنانه' => [
+                ['img' => 'images/men.jpg', 'title' => 'men عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
+                ['img' => 'images/women.jpg', 'title' => ' عطر women', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
             ],
             'بهترین‌های عطراگین' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
+                ['img' => 'images/rain.webp', 'title' => 'coco  عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
+                ['img' => 'images/flower.jpg', 'title' => ' عطر lamoyr', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
             ],
             'محبوب‌ترین‌های عطراگین' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
+                ['img' => 'images/best2.jpg', 'title' => 'black عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
+                ['img' => 'images/best.jpg', 'title' => ' عطر coci', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
             ],
             'بهترین‌های هر برند' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
+                ['img' => 'images/syl.webp', 'title' => 'syls عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
+                ['img' => 'images/chanel.jpg', 'title' => ' عطر chanel', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
             ],
-            'برندها' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام برند', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام برند دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
+          
         ];
     @endphp
 
@@ -59,7 +59,7 @@
                         <div class="card product-card h-100 shadow-sm">
                             <img src="{{ $product['img'] }}" class="card-img-top" alt="{{ $product['title'] }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $product['title'] }}</h5>
+                                <h5 class="card-title"><bdi>{{ $product['title'] }}</bdi></h5>
                                 <p class="card-text text-muted">{{ $product['desc'] }}</p>
                             </div>
                         </div>
