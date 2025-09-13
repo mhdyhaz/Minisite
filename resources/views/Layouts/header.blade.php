@@ -16,7 +16,7 @@
     }
 
     header {
-      background-color: #b8b49c;
+      background-color: #1A1A1A;
       position: fixed;
       top: 0;
       left: 0;
@@ -42,7 +42,7 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #2c2c2c;
+      color: #E6D5B8;
       font-weight: 600;
       transition: transform 0.3s ease;
     }
@@ -51,9 +51,22 @@
       transform: scale(1.1);
     }
 
+    .navbar-nav .nav-link {
+      color: #E6D5B8 !important;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .navbar-nav .nav-link:hover {
+      transform: scale(1.15);
+      color: #e6c87c !important;
+    }
+
     .user-icon {
       font-size: 28px;
-      color: black;
+      color: #E6D5B8;
       transition: transform 0.3s ease;
     }
 
@@ -74,41 +87,43 @@
       position: relative;
       background-color: transparent;
       outline: none;
+      color: white;
     }
+
     .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40%;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 30px;
-  transition: all 0.4s ease;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15), 0 0 15px #E6D5B8;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+    }
 
-.search-container.fixed {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.85);
-  width: 30%;
-}
+    .search-container.fixed {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.85);
+      width: 30%;
+    }
 
-nav.hidden {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
+    nav.hidden {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
 
- 
+
 
     .search-icon {
       font-size: 20px;
-      color: black;
+      color: #E6D5B8;
       transition: transform 0.2s ease, filter 0.2s ease;
       position: relative;
       border-radius: 50px;
@@ -145,10 +160,10 @@ nav.hidden {
   <header>
     <div class="container-fluid">
       <div class="row align-items-center">
-      
+
         <div class="col-auto logo">
-          <img src="/images/professional-logo-for-a-perfume-website-_-50cP1W8Q1q3E8Ual7iWYw_IkfZeZltQCuTtgGuz1U3Sg-removebg-preview.png"
-            alt="لوگوی عطراگین">
+          <img
+            src="/images/a-perfume-bottle-logo-with-a-combination_Fn_ApzehRLO3yNdRPjdt2A_Jns8ExupSt2EMvtDntFvLQ-removebg-preview.png" alt="لوگوی عطراگین">
         </div>
 
         <div class="col">
@@ -184,21 +199,21 @@ nav.hidden {
   </header>
   <script>
     const header = document.querySelector("header");
-const searchBar = document.getElementById("searchBar");
-const nav = document.querySelector("nav"); // اضافه شد
-const threshold = 200;
+    const searchBar = document.getElementById("searchBar");
+    const nav = document.querySelector("nav"); // اضافه شد
+    const threshold = 200;
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > threshold) {
-    header.classList.add("shrink");
-    searchBar.classList.add("fixed");
-    nav.classList.add("hidden"); // منو محو میشه
-  } else {
-    header.classList.remove("shrink");
-    searchBar.classList.remove("fixed");
-    nav.classList.remove("hidden"); // منو برمیگرده
-  }
-});
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > threshold) {
+        header.classList.add("shrink");
+        searchBar.classList.add("fixed");
+        nav.classList.add("hidden"); // منو محو میشه
+      } else {
+        header.classList.remove("shrink");
+        searchBar.classList.remove("fixed");
+        nav.classList.remove("hidden"); // منو برمیگرده
+      }
+    });
 
   </script>
 
@@ -229,4 +244,5 @@ window.addEventListener("scroll", () => {
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
