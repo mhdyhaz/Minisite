@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +12,33 @@
 
     @stack('styles')
     <style>
-        body {
-            margin: 0;
-            font-family: 'Vazirmatn', sans-serif;
-            direction: rtl;
-            background: #f9f6f1;
-        }
+     html, body {
+    background-color: #e9ddc6 !important;
+    color: #E6D5B8;
+    margin: 0;
+    padding: 0;
+}
     </style>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-    @include('Layouts.header') 
+    @if(!in_array(Request::path(), ['login', 'register']))
+        @include('Layouts.header')
+    @endif
 
     <main class="flex-grow-1">
-        @yield('content') 
+        @yield('content')
     </main>
-    
-    @include('Layouts.footer') 
+
+    @if(!in_array(Request::path(), ['login', 'register']))
+        @include('Layouts.footer')
+    @endif
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     @stack('scripts')
 
 </body>
+
 </html>

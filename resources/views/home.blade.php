@@ -74,13 +74,6 @@
 
 @push('styles')
 <style>
-html, body {
-    background-color: #e9ddc6 !important;
-    color: #E6D5B8;
-    margin: 0;
-    padding: 0;
-}
-
 
 .alert-box {
     text-align: left;

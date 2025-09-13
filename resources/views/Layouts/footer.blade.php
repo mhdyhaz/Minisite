@@ -55,35 +55,35 @@
         text-align: left;
     }
 </style>
-
 <footer class="mt-auto">
     <div class="container">
-        <div class="row align-items-center text-center text-md-start gy-4">
-            
-            <div class="col-12 col-md-4">
-                <div class="d-flex justify-content-center justify-content-md-start gap-3 flex-wrap">
-                    <a href="/about">درباره ما</a>
-                    <a href="/shop">فروشگاه</a>
-                    <a href="/contact">تماس با ما</a>
-                </div>
-            </div>
+        <div class="row align-items-center gy-4">
 
-            <div class="col-12 col-md-4 text-center">
-                <img src="/images/a-perfume-bottle-logo-with-a-combination_Fn_ApzehRLO3yNdRPjdt2A_Jns8ExupSt2EMvtDntFvLQ-removebg-preview.png "alt="لوگوی عطراگین" class="footer-logo img-fluid">
-            </div>
-
-            <div class="col-12 col-md-4 text-center text-md-end">
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-3 flex-wrap">
                 <div class="social">
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-telegram"></i></a>
                 </div>
+
             </div>
+
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <img src="/images/a-perfume-bottle-logo-with-a-combination_Fn_ApzehRLO3yNdRPjdt2A_Jns8ExupSt2EMvtDntFvLQ-removebg-preview.png"
+                     alt="لوگوی عطراگین" class="footer-logo img-fluid">
+            </div>
+
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
+                <a href="/about">درباره ما</a>
+                <a href="/shop">فروشگاه</a>
+                <a href="/contact">تماس با ما</a>
+            </div>
+
         </div>
 
         <hr class="my-3">
 
         <div class="row">
-            <div class="col-12 text-center text-md-start">
+            <div class="col-12 d-flex flex-column align-items-center">
                 <div class="sign-text">Az</div>
                 <div class="email-text">
                     <a href="mailto:azcode.builds@gmail.com">azcode.builds@gmail.com</a>
