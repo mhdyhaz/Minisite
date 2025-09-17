@@ -11,6 +11,6 @@ class ProductsController extends Controller
     {
         $products = Product::latest()->paginate(12); 
 
-        return view('Product.products', compact('products'));
+        return view('Product.shop', compact('products'));
     }
 }

@@ -12,7 +12,7 @@ Route::get('/','home')->name('home');
 Route::get('/Layouts','app')->name('Layouts.app');
 });
 
-Route::get('/products',[ProductsController::class,'index'])->name('Product.products');
+Route::get('/shop',[ProductsController::class,'index'])->name('Product.shop');
 Route::get('/product/{id}',[ProductDetailController::class,'show'])->name('product.productDetail');
 
 Route::controller(CartPageController::class)->group(function(){
