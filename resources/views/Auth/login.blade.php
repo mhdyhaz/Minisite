@@ -47,14 +47,14 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-outline-custom btn-lg w-100 ">ورود</button>
+                            <button type="submit" class="btn btn-outline-custom btn-lg w-100 rounded-3 ">ورود</button>
                         </form>
 
                         <hr class="my-4">
 
                         <div class="text-center">
                             <p class="mb-0">هنوز حساب کاربری ندارید؟
-                                <a href="{{ route('register') }}" class="fw-bold text-decoration-none">ثبت نام</a>
+                                <a href="{{ route('register') }}" class="fw-bold text-decoration-none ">ثبت نام</a>
                             </p>
                         </div>
                     </div>
@@ -76,11 +76,6 @@
             color: wheat;
         }
 
-        .btn-outline-custom {
-            color: wheat;
-            border-color: wheat;
-        }
-
         .input-group-text {
             background: none;
         }
@@ -99,12 +94,6 @@
             background-color: transparent;
             border-color: rgb(255, 255, 255);
         }
-
-        .btn-outline-custom:hover {
-            background-color: wheat;
-            color: rgb(37, 25, 2);
-        }
-
         .text-decoration-none {
             color: white;
         }

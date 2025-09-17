@@ -102,10 +102,6 @@
             color: wheat;
         }
 
-        .btn-outline-custom {
-            color: wheat;
-            border-color: wheat;
-        }
 
         .input-group-text {
             background: none;
@@ -126,10 +122,6 @@
             border-color: rgb(255, 255, 255);
         }
 
-        .btn-outline-custom:hover {
-            background-color: wheat;
-            color: rgb(37, 25, 2);
-        }
 
         .text-decoration-none {
             color: white;
