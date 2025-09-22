@@ -2,145 +2,232 @@
 
 @section('content')
 
-@if ($errors->any())
-    <div class="alert-box alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+    @if ($errors->any())
+        <div class="alert-box alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="perfume-hero">
+
+        <div class="perfume-carousel">
+            <img src="/images/UVrRDgLOTB6aHvLHzoLaQw-removebg-preview.png" alt="عطر 2" class="perfume-item">
+            <img src="/images/gh-removebg-preview.png" alt="عطر 3" class="perfume-item">
+        </div>
+
+        <div class="hero-slogan">
+            <h1>عطر خاص خود را فقط در عطراگین بیابید</h1>
+            <p>با انتخابی متفاوت، جذابیت واقعی رو تجربه کن</p>
+        </div>
     </div>
-@endif
 
-{{-- اسلایدر بالای صفحه --}}
-<div class="perfume-carousel">
-    <img src="/images/vi-removebg-preview.png" alt="عطر 1" class="perfume-item">
-    <img src="/images/UVrRDgLOTB6aHvLHzoLaQw-removebg-preview.png" alt="عطر 2" class="perfume-item">
-    <img src="/images/gh-removebg-preview.png" alt="عطر 3" class="perfume-item">
-</div>
+    <div class="container py-5">
 
-{{-- بخش محصولات --}}
-<div class="container py-5">
+        @php
+            $sections = [
+                'مناسب‌ترین عطر فصل' => [
+                    ['img' => 'images/summer.webp', 'title' => 'blue عطر', 'url' => 'product-page.html'],
+                    ['img' => 'images/summer2.jpg', 'title' => 'summerعطر ', 'url' => 'product-page2.html'],
+                ],
+                'عطرهای مردانه و زنانه' => [
+                    ['img' => 'images/men.jpg', 'title' => 'men عطر', 'url' => 'product-page.html'],
+                    ['img' => 'images/women.jpg', 'title' => 'womenعطر ', 'url' => 'product-page2.html'],
+                ],
+                'بهترین‌های عطراگین' => [
+                    ['img' => 'images/rain.webp', 'title' => 'coco عطر', 'url' => 'product-page.html'],
+                    ['img' => 'images/flower.jpg', 'title' => 'lamoyrعطر ', 'url' => 'product-page2.html'],
+                ],
+                'محبوب‌ترین‌های عطراگین' => [
+                    ['img' => 'images/best2.jpg', 'title' => 'black عطر', 'url' => 'product-page.html'],
+                    ['img' => 'images/best.jpg', 'title' => 'cociعطر ', 'url' => 'product-page2.html'],
+                ],
+                'بهترین‌های هر برند' => [
+                    ['img' => 'images/syl.webp', 'title' => 'syls عطر', 'url' => 'product-page.html'],
+                    ['img' => 'images/chanel.jpg', 'title' => 'chanelعطر ', 'url' => 'product-page2.html'],
+                ],
+            ];
+        @endphp
 
-    @php
-        $sections = [
-            'مناسب‌ترین عطر فصل' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
-            'بهترین‌های عطراگین' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
-            'محبوب‌ترین‌های عطراگین' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
-            'بهترین‌های هر برند' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام عطر', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام عطر دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
-            'برندها' => [
-                ['img' => 'images/perfume1.jpg', 'title' => 'نام برند', 'desc' => 'توضیح کوتاه', 'url' => 'product-page.html'],
-                ['img' => 'images/perfume2.jpg', 'title' => 'نام برند دوم', 'desc' => 'توضیح کوتاه', 'url' => 'product-page2.html'],
-            ],
-        ];
-    @endphp
+        @foreach ($sections as $title => $products)
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">{{ $title }}</h2>
+            </div>
 
-    @foreach ($sections as $title => $products)
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">{{ $title }}</h2>
-        </div>
+            <div class="row g-4 justify-content-center mb-5">
+                @foreach ($products as $product)
+                    <div class="col-md-3 col-sm-6">
+                        <a href="{{ $product['url'] }}" class="text-decoration-none text-dark">
+                            <div class="card product-card h-100 shadow-sm rounded-3">
+                                <div class="img-box">
+                                    <img src="{{ $product['img'] }}" class="card-img-top" alt="{{ $product['title'] }}">
 
-        <div class="row g-4 justify-content-center mb-5">
-            @foreach ($products as $product)
-                <div class="col-md-3 col-sm-6">
-                    <a href="{{ $product['url'] }}" class="text-decoration-none text-dark">
-                        <div class="card product-card h-100 shadow-sm">
-                            <img src="{{ $product['img'] }}" class="card-img-top" alt="{{ $product['title'] }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product['title'] }}</h5>
-                                <p class="card-text text-muted">{{ $product['desc'] }}</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title ">{{ $product['title'] }}</h5>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    @endforeach
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
 
-</div>
+    </div>
 @endsection
 
 @push('styles')
-<style>
-    .alert-box {
-        text-align: left;
-        width: 31rem;
-        position: relative;
-        left: 61px;
-    }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Tajawal:wght@400;700&display=swap');
 
-    .perfume-carousel {
-        margin-top: 160px;
-        width: 100%;
-        height: 280px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        background-color: #b8b49c;
-        background-size: 400% 400%;
-        animation: waveBackground 10s ease-in-out infinite;
-    }
+        :root {
+            --accent-gold: #ffcc70;
+            --accent-white: #fefefe;
+        }
 
-    .perfume-item {
-        position: absolute;
-        width: 120px;
-        height: auto;
-        opacity: 0;
-        transition: opacity 0.8s ease, transform 0.8s ease;
-        transform: scale(0.8);
-    }
 
-    .perfume-item.active {
-        opacity: 1;
-        transform: scale(3);
-        z-index: 2;
-    }
 
-    .product-card img {
-        height: 250px;
-        object-fit: cover;
-        border-radius: 0.5rem 0.5rem 0 0;
-    }
+        .perfume-hero {
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5% 7%;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
 
-    .product-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 0.5rem;
-    }
+        .hero-slogan {
+            flex: 1;
+            max-width: 45%;
+            text-align: right;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: sloganEnter 1.6s ease forwards 0.5s;
+        }
 
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-</style>
+        .hero-slogan h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.3;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-white) 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 100px;
+        }
+
+        .hero-slogan p {
+            margin-top: 18px;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        @keyframes sloganEnter {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .perfume-item {
+            position: absolute;
+            left: 10%;
+            bottom: 15%;
+            width: 360px;
+            height: auto;
+            opacity: 0;
+            transform: translateY(200px) rotate(20deg) scale(0.7);
+            transition: opacity 1s ease, transform 1.2s ease;
+            z-index: 2;
+        }
+
+        .perfume-item.active {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg) scale(1.5);
+            filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.9));
+            animation: perfumeGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes perfumeGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.7));
+            }
+
+            50% {
+                filter: drop-shadow(0 40px 100px rgba(0, 0, 0, 0.95));
+            }
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 1rem 1rem 0 0;
+            transform: scale(1.1);
+        }
+
+        .product-card {
+            border: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+
+        .product-card .card-body {
+            background-color: #1A1A1A;
+            color: wheat;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 992px) {
+            .perfume-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-slogan {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .perfume-item {
+                width: 220px;
+                right: auto;
+                bottom: 0;
+            }
+        }
+    </style>
 @endpush
 
 @push('scripts')
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const perfumes = document.querySelectorAll('.perfume-item');
-        let current = 0;
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const perfumes = document.querySelectorAll('.perfume-item');
+            let current = 0;
 
-        function showNextPerfume() {
-            perfumes.forEach(p => p.classList.remove('active'));
-            perfumes[current].classList.add('active');
-            current = (current + 1) % perfumes.length;
-        }
+            if (!perfumes || perfumes.length === 0) return;
 
-        showNextPerfume();
-        setInterval(showNextPerfume, 4000);
-    });
-</script>
+            function showNextPerfume() {
+                perfumes.forEach(p => p.classList.remove('active'));
+                perfumes[current].classList.add('active');
+                current = (current + 1) % perfumes.length;
+            }
+
+            showNextPerfume();
+            setInterval(showNextPerfume, 4500);
+        });
+    </script>
 @endpush
