@@ -1,0 +1,15 @@
+.btn-outline-custom {
+    color: wheat;
+    border: 1px solid wheat;
+    background: transparent;
+    border-radius: 3px;
+    transition: 0.3s;
+    text-decoration: none; 
+    
+}
+
+.btn-outline-custom:hover {
+    background-color: wheat;
+    color: #1A1A1A;
+    text-decoration: none; 
+}
