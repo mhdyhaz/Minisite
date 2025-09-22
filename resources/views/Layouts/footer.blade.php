@@ -69,7 +69,7 @@
 
             <div class="col-12 col-md-4 d-flex justify-content-center">
                 <img src="/images/a-perfume-bottle-logo-with-a-combination_Fn_ApzehRLO3yNdRPjdt2A_Jns8ExupSt2EMvtDntFvLQ-removebg-preview.png"
-                     alt="لوگوی عطراگین" class="footer-logo img-fluid">
+                    alt="لوگوی عطراگین" class="footer-logo img-fluid">
             </div>
 
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
