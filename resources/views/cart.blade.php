@@ -1,69 +1,136 @@
 @extends('Layouts.app')
 
 @section('content')
-<div class="container py-5">
+    <div class="cart-background">
+        <div class="cart-wrapper">
+            <div class="card glass-card shadow-lg border-0 rounded-4">
+                <div class="card-body p-4 p-md-5">
 
-    <h2 class="fw-bold mb-4 text-center">سبد خرید شما</h2>
+                    <h3 class="text-center fw-bold mb-4">سبد خرید </h3>
 
-    @if (count($cart) > 0)
-        <div class="table-responsive">
-            <table class="table table-dark table-striped align-middle text-center">
-                <thead>
-                    <tr>
-                        <th>تصویر</th>
-                        <th>نام محصول</th>
-                        <th style="width: 200px;">تعداد</th>
-                        <th>قیمت واحد</th>
-                        <th>جمع کل</th>
-                        <th>حذف</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php $total = 0; @endphp
-                    @foreach ($cart as $id => $item)
-                        @php $total += $item['price'] * $item['quantity']; @endphp
-                        <tr>
-                            <td>
-                                <img src="{{ asset($item['image']) }}" width="70" class="rounded">
-                            </td>
-                            <td>{{ $item['name'] }}</td>
-                            <td>
-                                <form action="{{ route('cart.update', $id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="input-group input-group-sm">
-                                        <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" class="form-control">
-                                        <button class="btn btn-primary">✔</button>
+                    @if(empty($cartItems) || count($cartItems) === 0)
+                        <div class="text-center py-5">
+                            {{-- <img src="/images/empty-cart.png" alt="سبد خالی" class="mb-3 empty-img"> --}}
+                            <h5 class="mb-3">سبد خرید شما خالی است</h5>
+                            <a href="{{ route('Product.shop') }}" class="btn btn-outline-custom btn-lg">
+                                مشاهده محصولات
+                            </a>
+                        </div>
+                    @else
+                        @foreach($cartItems as $item)
+                            <div class="cart-item d-flex align-items-center justify-content-between mb-3 p-3 rounded-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="{{ $item->image }}" alt="{{ $item->name }}" class="cart-img">
+                                    <div>
+                                        <h6 class="mb-1 fw-bold">{{ $item->name }}</h6>
+                                        <small class="text-muted">{{ $item->variant }}</small>
                                     </div>
-                                </form>
-                            </td>
-                            <td>{{ number_format($item['price']) }} تومان</td>
-                            <td>{{ number_format($item['price'] * $item['quantity']) }} تومان</td>
-                            <td>
-                                <form action="{{ route('cart.remove', $id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger">✖</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="input-group input-group-sm">
+                                        <button class="btn btn-outline-light">-</button>
+                                        <input type="text" class="form-control text-center" value="{{ $item->qty }}" style="width:50px;">
+                                        <button class="btn btn-outline-light">+</button>
+                                    </div>
+                                    <span class="fw-bold">{{ number_format($item->price) }} تومان</span>
+                                    <button class="btn btn-sm btn-danger">✕</button>
+                                </div>
+                            </div>
+                        @endforeach
 
-        <div class="text-end mt-4">
-            <h4>مجموع کل: <span class="text-success">{{ number_format($total) }} تومان</span></h4>
-            <a href="{{ route('checkout') }}" class="btn btn-lg btn-success mt-3">تسویه حساب</a>
-        </div>
-    @else
-        <div class="d-flex flex-column align-items-center justify-content-center text-center py-5">
-            <img src="{{ asset('images/empty-cart.png') }}" alt="سبد خالی" class="mb-3" width="150">
-            <h4 class="mb-2">سبد خرید شما خالی است!</h4>
-            <p class="text-muted mb-4">برای مشاهده محصولات روی دکمه زیر کلیک کنید.</p>
-            <a href="{{ route('Product.products') }}" class="btn btn-lg btn-dark">ادامه خرید</a>
-        </div>
-    @endif
+                        <hr>
 
-</div>
+                        <div class="summary mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>جمع جزء:</span>
+                                <span>{{ number_format($subtotal) }} تومان</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>هزینه ارسال:</span>
+                                <span>{{ number_format($shipping) }} تومان</span>
+                            </div>
+                            <div class="d-flex justify-content-between fw-bold fs-5 mt-2">
+                                <span>جمع کل:</span>
+                                <span class="text-warning">{{ number_format($total) }} تومان</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column flex-md-row gap-3">
+                            <a href="{{ route('Product.shop') }}" class="btn btn-secondary w-100">ادامه خرید</a>
+                            <a href="{{ route('checkout') }}" class="btn btn-outline-custom w-100">ادامه به پرداخت</a>
+                        </div>
+                    @endif
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cart-background {
+            position: relative;
+            min-height: calc(100vh - 70px);
+            background: url('/images/a-luxurious-cart-bg.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Vazirmatn', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cart-background::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
+
+        .cart-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 850px;
+            margin: 18rem;
+        }
+
+        .glass-card {
+            background: rgba(205, 205, 205, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .cart-item {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .cart-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .empty-img {
+            width: 150px;
+            opacity: 0.8;
+        }
+
+        .btn-outline-custom {
+            color: wheat;
+            border-color: wheat;
+            font-weight: bold;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: wheat;
+            color: rgb(37, 25, 2);
+        }
+    </style>
 @endsection
