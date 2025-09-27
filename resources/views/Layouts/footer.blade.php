@@ -16,6 +16,8 @@
         text-decoration: none;
         transition: transform 0.3s ease;
         font-weight: 500;
+
+
     }
 
     footer a:hover {
@@ -32,6 +34,12 @@
         margin: 0 0.4rem;
         transition: transform 0.3s ease, color 0.3s ease;
         color: #E6D5B8;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
 
     .social a:hover {
@@ -59,7 +67,7 @@
     <div class="container">
         <div class="row align-items-center gy-4">
 
-            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end gap-3 flex-wrap">
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start flex-wrap">
                 <div class="social">
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-telegram"></i></a>
@@ -72,10 +80,14 @@
                     alt="لوگوی عطراگین" class="footer-logo img-fluid">
             </div>
 
-            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
-                <a href="/about">درباره ما</a>
-                <a href="/shop">فروشگاه</a>
-                <a href="/contact">تماس با ما</a>
+            <div class="col-12 col-md-4 d-flex  justify-content-md-end ">
+
+                <div class="navbar">
+                    <a href="/about">درباره ما</a>
+                    <a href="/shop">فروشگاه</a>
+                    <a href="/contact">تماس با ما</a>
+                </div>
+
             </div>
 
         </div>
@@ -83,7 +95,7 @@
         <hr class="my-3">
 
         <div class="row">
-            <div class="col-12 d-flex flex-column align-items-center">
+            <div class="col-12 d-flex flex-column align-items-start">
                 <div class="sign-text">Az</div>
                 <div class="email-text">
                     <a href="mailto:azcode.builds@gmail.com">azcode.builds@gmail.com</a>
