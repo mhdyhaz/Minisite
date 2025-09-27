@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/kalameh-font@v1.0.0/dist/font-face.css" rel="stylesheet" />
@@ -27,7 +26,7 @@
     }
 
     header.shrink {
-      padding: 8px 15px;
+      padding: 0px 15px;
     }
 
     .logo img {
@@ -148,7 +147,7 @@
       align-items: flex-start;
     }
 
-    @media (max-width: 768px) {
+    /* @media (max-width: 768px) {
       .logo img {
         height: 120px;
       }
@@ -171,7 +170,7 @@
       .search-container {
         width: 90%;
       }
-    }
+    } */
   </style>
 </head>
 
