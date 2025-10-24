@@ -26,7 +26,7 @@ Route::delete('/cart/remove/{id}', 'remove')->name('cart.remove');
 
 Route::controller(UserController::class)->group(function(){
  Route::get('register',  'showRegisterForm')->name('register');
- Route::post('register',  'register');
+ Route::post('register', 'register')->name('register.post');
  Route::get('login',  'showLoginForm')->name('login');
  Route::post('login',  'login');
  Route::post('logout',  'logout')->name('logout');

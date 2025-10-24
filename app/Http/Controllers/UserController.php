@@ -2,49 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 
 class UserController extends Controller
 {
-    public function showRegisterForm()
+    protected  $userService;
+
+    public function __construct(UserService $userService)
     {
-        return view('Auth.register'); 
+        $this->userService = $userService;
     }
 
-    public function register(Request $request)
+    public function showRegisterForm()
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed', // confirmed بررسی می‌کند password_confirmation برابر باشد
-        ]);
+        return view('Auth.register');
+    }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        Auth::login($user);
-
-        return redirect()->route('dashboard')->with('success', 'ثبت نام با موفقیت انجام شد!');
+    public function register(UserRequest $request)
+    {
+        try {
+            $inputs = $request->validated();
+         $this->userService->storeUser($inputs);
+          
+            return redirect()->route('home')->with('success', 'ثبت‌نام با موفقیت انجام شد ');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'خطا در ثبت‌نام: ' . $e->getMessage());
+        }
     }
 
     public function showLoginForm()
     {
-        return view('Auth.login'); 
+        return view('Auth.login');
     }
 
-    public function login(Request $request)
+    public function login(UserRequest $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-
+        $credentials = $request->validated();
         $remember = $request->has('remember');
 
         if (Auth::attempt($credentials, $remember)) {
@@ -64,5 +60,19 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with('success', 'با موفقیت خارج شدید.');
+    }
+
+    public function showProfileForm()
+    {
+        $user = Auth::user();
+        return view('Profile.edit', compact('user'));
+    }
+
+    public function updateProfile(UserRequest $request)
+    {
+        $user = Auth::user();
+        $this->userService->updateUser($user, $request->validated());
+
+        return redirect()->route('profile.edit')->with('success', 'اطلاعات پروفایل با موفقیت به‌روز شد.');
     }
 }

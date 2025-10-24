@@ -24,6 +24,7 @@
 
 <body class="d-flex flex-column min-vh-100">
 
+ 
     @if(!in_array(Request::path(), ['login', 'register']))
         @include('Layouts.header')
     @endif

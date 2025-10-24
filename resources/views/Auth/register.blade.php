@@ -7,8 +7,20 @@
                 <div class="card glass-card border-0 rounded-4">
                     <div class="card-body p-5">
                         <h3 class="text-center mb-3 fw-bold">ثبت نام</h3>
+                        @if ($errors->any())
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'خطا در ثبت نام',
+                                html: `{!! implode('<br>', $errors->all()) !!}`,
+                                confirmButtonText: 'باشه',
+                                confirmButtonColor: '#8f7f39'
+                            });
+                        </script>
+                    @endif
+                    
+                        <form action="{{ route('register.post') }}" method="POST" >
 
-                        <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="mb-3" dir="rtl">
@@ -199,4 +211,8 @@
             }
         }
     </style>
+
+
+    
+    
 @endsection
