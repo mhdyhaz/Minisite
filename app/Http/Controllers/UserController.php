@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Services\AuthService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    protected  $userService;
+    protected  $userService,$authService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService,AuthService $authService)
     {
         $this->userService = $userService;
+        $this->authService = $authService;
     }
 
     public function showRegisterForm()
@@ -25,6 +27,7 @@ class UserController extends Controller
     {
         try {
             $inputs = $request->validated();
+
          $this->userService->storeUser($inputs);
           
             return redirect()->route('home')->with('success', 'ثبت‌نام با موفقیت انجام شد ');
@@ -40,26 +43,22 @@ class UserController extends Controller
 
     public function login(UserRequest $request)
     {
-        $credentials = $request->validated();
-        $remember = $request->has('remember');
-
-        if (Auth::attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard')->with('success', 'ورود موفقیت‌آمیز بود!');
+        $inputs = $request->only('email','phone','password');
+    
+        if ($this->authService->login($inputs)) {
+            return redirect()->route('home')->with('success', 'ورود موفقیت‌آمیز بود ');
         }
 
         return back()->withErrors([
-            'email' => 'ایمیل یا رمز عبور اشتباه است.',
+            'login' => 'اطلاعات واردشده نادرست است!',
         ])->withInput();
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'با موفقیت خارج شدید.');
+    public function logout()
+    {
+        $this->authService->logout();
+        return redirect()->route('login.form')->with('success', 'با موفقیت خارج شدید ');
     }
 
     public function showProfileForm()

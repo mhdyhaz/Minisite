@@ -28,8 +28,8 @@ class UserRequest extends FormRequest
             ];
         } elseif ($route->getName() == 'login') {
             return [
-                'email'    => ['required_without:phone','nullable','email'],
-                'phone'    => ['required_without:email','nullable','string'],
+                'email'    => ['nullable', 'email', 'required_without:phone'],
+                'phone'    => ['nullable', 'string', 'required_without:email'],
                 'password' => ['required','string'],
                 'remember' => ['nullable','boolean'],
             ];
@@ -46,20 +46,40 @@ class UserRequest extends FormRequest
     }
     protected function prepareForValidation()
     {
-        $input = $this->input('email');
-
-        if (is_numeric($input)) {
-            $this->merge([
-                'phone' => $input,
-                'email' => null,
-            ]);
-        } else {
-            $this->merge([
-                'email' => $input,
-                'phone' => null,
-            ]);
+        $route = Route::current();
+    
+        if ($route->getName() == 'login.post') {
+            $input = $this->input('email');
+    
+            if (is_numeric($input)) {
+                $this->merge([
+                    'phone' => $input,
+                    'email' => null,
+                ]);
+            } else {
+                $this->merge([
+                    'email' => $input,
+                    'phone' => null,
+                ]);
+            }
+        }
+    
+        if ($route->getName() == 'register.post') {
+            $input = $this->input('email');
+            if (is_numeric($input)) {
+                $this->merge([
+                    'phone' => $input,
+                    'email' => null,
+                ]);
+            } else {
+                $this->merge([
+                    'email' => $input,
+                    'phone' => null,
+                ]);
+            }
         }
     }
+    
 
 
     public function messages(): array

@@ -27,13 +27,18 @@
                             <div class="mb-3" dir="rtl">
                                 <label for="email" class="form-label">ایمیل یا شماره موبایل</label>
                                 {{-- form-control → استایل استاندارد ورودی‌ها. --}}
-                                <input type="text" name="login" class="form-control form-control-sm  ">
+                                <input type="text" id="email" name="email" class="form-control form-control-sm" required>
                             </div>
 
                             <div class="mb-3" required autofocus dir="rtl">
                                 <label for="password" class="form-label">رمز عبور</label>
-                                <input type="password" id="password" name="password"
-                                    class="form-control form-control-sm ">
+                                <div class="input-group">
+                                    <input type="password" id="password" name="password" class="form-control form-control-sm" required>
+                                    <span class="input-group-text" id="togglePassword" style="cursor:pointer;">
+                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </span>
+                                </div>
+          
                             </div>
 
                             <div class="d-flex justify-content-end align-items-center mb-3">
@@ -62,6 +67,26 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleEye(inputId, toggleId) {
+            const input = document.getElementById(inputId);
+            const toggle = document.getElementById(toggleId).querySelector('i');
+
+            document.getElementById(toggleId).addEventListener('click', () => {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    toggle.classList.remove('fa-eye-slash');
+                    toggle.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    toggle.classList.remove('fa-eye');
+                    toggle.classList.add('fa-eye-slash');
+                }
+            });
+        }
+        toggleEye('password', 'togglePassword');
+        toggleEye('password_confirmation', 'togglePasswordConfirm');
+    </script>
     <style>
         .form-control:focus {
             outline: none;

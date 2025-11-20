@@ -28,6 +28,6 @@ Route::controller(UserController::class)->group(function(){
  Route::get('register',  'showRegisterForm')->name('register');
  Route::post('register', 'register')->name('register.post');
  Route::get('login',  'showLoginForm')->name('login');
- Route::post('login',  'login');
+ Route::post('login',  'login')->name('login.post');
  Route::post('logout',  'logout')->name('logout');
 });
